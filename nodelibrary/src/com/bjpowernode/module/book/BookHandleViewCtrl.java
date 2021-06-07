@@ -3,6 +3,8 @@ package com.bjpowernode.module.book;
 import com.bjpowernode.bean.Book;
 import com.bjpowernode.bean.Constant;
 import com.bjpowernode.global.util.Alerts;
+import com.bjpowernode.service.BookService;
+import com.bjpowernode.service.impl.BookServiceImpl;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -36,6 +38,7 @@ public class BookHandleViewCtrl {
     private TableView<Book> bookTableView;
 
     private ObservableList<Book> books;
+    private BookService bookService = new BookServiceImpl();
 
     //修改的book对象
     private Book book;
@@ -51,12 +54,16 @@ public class BookHandleViewCtrl {
                 //添加操作
                 Book book = new Book();
                 populate(book);
+                //将图书数据添加到文件中
+                bookService.add(book);
+                //内存中添加图书
                 book.setStatus(Constant.STATUS_STORAGE);
                 books.add(book);
             }else {
-                //修改操作
                 populate(this.book);
-                //刷新
+                //在文件中修改操作，要传入的book对象里的数据应该是在界面修改过的值。意思是先调用 populate(this.book);将修改过的book对象传进去
+                bookService.update(this.book);
+                //刷新，内存中修改操作
                 bookTableView.refresh();
             }
 

@@ -80,7 +80,9 @@ public class UserDaoImpl implements UserDao {
             }
         }
     }
-
+    /*
+    修改
+     */
     @Override
     public void update(User user) {
         //将list数据从文件中查出来

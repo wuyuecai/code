@@ -1,8 +1,10 @@
 package com.bjpowernode.util;
 
+import com.bjpowernode.bean.Book;
 import com.bjpowernode.bean.Constant;
 import com.bjpowernode.bean.PathConstant;
 import com.bjpowernode.bean.User;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.IntData;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,6 +20,11 @@ public class InitDataUtil {
         List<User> userList = new ArrayList<>();
         userList.add(new User(1001, "张大虎", Constant.USER_OK, BigDecimal.TEN));
         initData(PathConstant.USER_PATH,userList);
+        //初始化图书数据
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book(1, "java实战入门", "张三", Constant.TYPE_COMPUTER, "12-987", "XX出版社", Constant.STATUS_STORAGE));
+        bookList.add(new Book(1, "java入门", "李思", Constant.TYPE_COMPUTER, "12-987", "XXyy出版社", Constant.STATUS_STORAGE));
+        initData(PathConstant.BOOK_PATH, bookList);
     }
 
     /**

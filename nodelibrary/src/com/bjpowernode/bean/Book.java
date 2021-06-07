@@ -1,11 +1,13 @@
 package com.bjpowernode.bean;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /*
     Õº È
  */
-public class Book {
+public class Book implements Serializable {
+    private static final long serialVersionUID = -6849794470754667710L;
     //±‡∫≈
     private int id;
     // È√˚
@@ -107,5 +109,18 @@ public class Book {
         this.isbn = isbn;
         this.publisher = publisher;
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", type='" + type + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

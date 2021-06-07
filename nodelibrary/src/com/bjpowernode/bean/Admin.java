@@ -1,9 +1,12 @@
 package com.bjpowernode.bean;
 
+import java.io.Serializable;
+
 /*
     系统管理员
  */
-public class Admin {
+public class Admin implements Serializable {
+    private static final long serialVersionUID = -6849794667710L;
 
     private String userName;
     private String password;

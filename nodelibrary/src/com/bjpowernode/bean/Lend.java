@@ -1,12 +1,14 @@
 package com.bjpowernode.bean;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 /*
     借书
  */
-public class Lend {
+public class Lend implements Serializable {
+    private static final long serialVersionUID = -6849710L;
     private int id;
 
     //借出的书籍
